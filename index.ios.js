@@ -1,21 +1,38 @@
-import React, {
+
+import React, { Component } from 'react';
+import {
   AppRegistry,
-  DeviceEventEmitter,
-  Component,
-  Image,
-  NavigatorIOS,
-  ScrollView,
-  StatusBarIOS,
   StyleSheet,
   Text,
-  TouchableHighlight,
-  View
+  ListView,
+  View,
+  Image,
+  TouchableHighlight
 } from 'react-native';
+import Router from 'react-native-simple-router';
+import Home from './src/pages/home.js';
+import {BackIconWhite} from './src/style/icon';
 
-import Day01 from './src/day01';
+var firstRoute = {
+  name: 'Home',
+  component: Home,
+  hideNavigationBar: true,
+  trans: true,
+  noStatusBar: true
+};
+class reactNative extends Component {
+  constructor(props) {
+    super(props);
 
-class MainView extends Component {
+  }
 
+  render() {
+    return (
+      <Router firstRoute={firstRoute} 
+        backButtonComponent={BackIconWhite} />
+    );
+  }
 }
 
-AppRegistry.registerComponent('MainView', () => MainView);
+
+AppRegistry.registerComponent('reactNative', () => reactNative);
