@@ -16,6 +16,8 @@ import Button from 'react-native-button';
 import Css from '../style/css';
 
 import PageButton from './day01_button';
+import Grid from './day02_grid';
+import Percent from './day03_percent';
 
 let styles = StyleSheet.create({
   list: {
@@ -78,6 +80,14 @@ export default class Home extends Component {
     this._pressRow('按钮', PageButton);
   }
 
+  openPercent() {
+    this._pressRow('百分比', Percent);
+  }
+
+  openGrid() {
+    this._pressRow('Grid列表', Grid);
+  }
+
   render() {
     return (
       <View style ={Css.container}>
@@ -99,7 +109,14 @@ export default class Home extends Component {
             <View style={styles.row}>
               <Image style={styles.thumb} source={require('../asset/book-list.png') } />
               <Text numberOfLines={1} style={styles.text}>Grid 列表</Text>
-              <Button onPress={this.openGrid} numberOfLines={1} style={styles.btn}>
+              <Button onPress={this.openGrid.bind(this)} numberOfLines={1} style={styles.btn}>
+                打开
+              </Button>
+            </View>
+            <View style={styles.row}>
+              <Image style={styles.thumb} source={require('../asset/percent-ios.png') } />
+              <Text numberOfLines={1} style={styles.text}>百分比</Text>
+              <Button onPress={this.openPercent.bind(this) } numberOfLines={1} style={styles.btn}>
                 打开
               </Button>
             </View>
