@@ -120,6 +120,13 @@ export default class Home extends Component {
                 打开
               </Button>
             </View>
+            <View style={styles.row}>
+              <Image style={styles.thumb} source={require('../asset/network.png') } />
+              <Text numberOfLines={1} style={styles.text}>天气预报</Text>
+              <Button onPress={this.openPercent.bind(this) } numberOfLines={1} style={styles.btn}>
+                打开
+              </Button>
+            </View>
           </View>
         </ScrollView>
       </View>
